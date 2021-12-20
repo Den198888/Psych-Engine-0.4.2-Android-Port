@@ -2783,10 +2783,7 @@ class PlayState extends MusicBeatState
 						}
 				}
 				reloadHealthBarColors();
-			
-			case 'BG Freaks Expression':
-				if(bgGirls != null) bgGirls.swapDanceType();
-				
+		
 		     case 'Zoom Amount':
 				var zoom:Float = Std.parseFloat(value1);
 

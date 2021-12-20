@@ -2058,11 +2058,15 @@ class PlayState extends MusicBeatState
 
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
+		else if (healthBar.percent > 90)
+		    iconP1.animation.curAnim.curFrame = 0;
 		else
 			iconP1.animation.curAnim.curFrame = 0;
 
 		if (healthBar.percent > 80)
 			iconP2.animation.curAnim.curFrame = 1;
+		else if (healthBar.percent < 20)
+		    iconP2.animation.curAnim.curFrame = 2;
 		else
 			iconP2.animation.curAnim.curFrame = 0;
 
@@ -2782,7 +2786,12 @@ class PlayState extends MusicBeatState
 			
 			case 'BG Freaks Expression':
 				if(bgGirls != null) bgGirls.swapDanceType();
-		}
+				
+		     case 'Zoom Amount':
+				var zoom:Float = Std.parseFloat(value1);
+
+				defaultCamZoom = zoom;
+         }
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}
 

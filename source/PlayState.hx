@@ -1277,7 +1277,7 @@ class PlayState extends MusicBeatState
 			}
 		});
 	}
-
+    var dadY:Float;
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
@@ -2038,7 +2038,12 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
 		}
-
+         if (dad != null) {
+            if (!Math.isNaN(dadY) && dad.curCharacter == 'gf-car') {
+                dad.y = dadY + ((Math.sin((Conductor.songPosition / 16000) * (180 / Math.PI))) * 5);
+            } else
+                dadY = dad.y;
+        }
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
